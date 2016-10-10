@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+	<head>
+		<meta charset="utf-8">
+		<title>test</title>
+	</head>
+
+	<body ng-controller="testCtrl">
+		<script src="./js/lib/jQuery/jquery.min.js"></script>
+		<script src="./js/utils/jsMethod.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/utils/jQueryMethod.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/lib/angular/angular.yh.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/yhutil.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/simple-table/simple-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/argos/argosInAngular.js" type="text/javascript" charset="utf-8"></script>
+
+		<!--
+        	以下为表格的table的实现
+        -->
+		<div >
+			
+			<div>
+				<div>A功能说明：输入链接后，与需要post提交的数据。点击POST按钮后将数据提交到服务器中</div>
+				<div>URL：<input type="text" ng-model="dataA.url" width="255px" size="100" ></input>
+					<a ng-click="restApp()" >重置App</a><span ng-bind="dataA.restMsg"></span>
+				</div>
+				<div>JavaScript代码：<textarea ng-model="dataA.js" cols="50" rows="10" >
+					</textarea><a ng-click="runFunA()">执行JS</a>
+				</div>
+				<div><a ng-click="doFunA()">提交</a></div>
+				<div>提交数据<br />{{dataA.data}}</div>
+				<div>返回数据：{{dataA.resp}}</div>
+				
+			</div>
+		</div>
+		<hr/>
+		<div>
+			<a ng-click="doTestDb()">doTestdb</a>
+			<div>返回数据:{{testdbData}}</div>
+		</div>
+		
+		<hr/>
+		<div>
+			<a ng-click="doArgoHello()">doArgoHello</a>
+		</div>
+		
+		<script src="./test/test-service.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>
