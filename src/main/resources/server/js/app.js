@@ -21,14 +21,6 @@ var initParam = {
 
 $argos.initArgos(initParam);
 
-$argos.$core.run('test.js');
-
-/*
- * 自有服务S对象
- */
-$argos.S = {
-		
-}
 /*
  * 自有常量集合
  */
@@ -37,6 +29,16 @@ $argos.C = {
 }
 
 
+/*
+ * 自有服务S对象
+ */
+$argos.S = {
+		
+}
+
+//$argos.$core.run('test.js');
+
+$argos.$core.run('util.js');
 $argos.$core.run('account.js');
 $argos.$core.run('login.js');
 

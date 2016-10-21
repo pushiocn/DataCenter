@@ -15,12 +15,16 @@ import java.util.Set;
 
 import javax.sql.DataSource;
 
+import org.apache.log4j.Logger;
+import org.pushio.datacenter.ctrl.ArgosCtrl;
 import org.springframework.jdbc.support.JdbcUtils;
 
 public class AModel {
 	public static final String DB_CONF_URL_NAME = "url";
 	public static final String DB_CONF_PASSWORD_NAME = "password";
 	public static final String DB_CONF_USERNAME_NAME = "username";
+	
+	private static final Logger logger = Logger.getLogger(AModel.class);
 	
 	private Map<String,String> conf = Collections.EMPTY_MAP;
 	private DataSource ds = null;
@@ -42,6 +46,7 @@ public class AModel {
 		try {
 			conn = this.ds.getConnection();
 			 PreparedStatement preStat = conn.prepareStatement(sql);
+			 logger.info("exeQuery sql="+sql);
 			 ResultSet rs = preStat.executeQuery();
 			 ResultSetMetaData meta = rs.getMetaData();
 			 Integer ix = 0;
@@ -84,8 +89,7 @@ public class AModel {
 			conn = this.ds.getConnection();
 			 PreparedStatement preStat = conn.prepareStatement(sql);
 			 
-			
-			 
+			 logger.info("qy sql="+sql);
 			 ResultSet rs = preStat.executeQuery();
 			 ResultSetMetaData meta = rs.getMetaData();
 			 Integer ix = 0;
@@ -130,7 +134,7 @@ public class AModel {
 			conn = this.ds.getConnection();
 			 PreparedStatement preStat = conn.prepareStatement(sql);
 			 
-			
+			 logger.info("up sql="+sql);
 			 
 			 update_cnt = preStat.executeUpdate();
 			
