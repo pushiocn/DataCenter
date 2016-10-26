@@ -16,3 +16,6 @@ var param = {
 $argos.sum = function(param){
     return param.a + param.b;
 }
+
+
+详细请见：https://zhuanlan.zhihu.com/p/21965207
