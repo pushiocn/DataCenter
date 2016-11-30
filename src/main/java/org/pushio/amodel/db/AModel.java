@@ -72,6 +72,39 @@ public class AModel {
 		
 		return result ;
 	}
+	public Map getOne(String sql){
+		Map result = null;
+		
+		Connection conn = null;
+		try {
+			conn = this.ds.getConnection();
+			 PreparedStatement preStat = conn.prepareStatement(sql);
+			 logger.info("exeQuery sql="+sql);
+			 ResultSet rs = preStat.executeQuery();
+			 ResultSetMetaData meta = rs.getMetaData();
+			 Integer ix = 0;
+			 if(rs.next()){
+				 Map row = new HashMap<String,Object>();
+				 int colCnt = meta.getColumnCount();
+				 for(int i = 1; i <= colCnt; ++i){
+					 String colName = meta.getColumnName(i);
+					 Object value = rs.getObject(i);
+					 row.put(colName, value);
+				 }
+				 ix++;
+				 
+				result = row;
+			 }
+			 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			JdbcUtils.closeConnection(conn);
+		}
+		
+		return result ;
+	}
 	
 	/*
 	 * 使用方式

@@ -41,6 +41,8 @@ $argos.S = {
 $argos.$core.run('util.js');
 $argos.$core.run('account.js');
 $argos.$core.run('login.js');
+$argos.$core.run('areport.js');
+$argos.$core.run('areport_test.js');
 
 
 
